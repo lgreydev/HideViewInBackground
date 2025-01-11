@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Environment(\.scenePhase) var scenePhase
+    
     var body: some View {
         VStack {
             Text("Hello, world! 👋👋")
             Text("This is sentence information")
                 .font(.title)
-                .privacySensitive()
+                .blur(radius: (scenePhase != .active ? 10 : 0))
+                .animation(.default, value: scenePhase)
         }
         .padding()
     }
