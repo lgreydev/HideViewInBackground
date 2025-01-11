@@ -16,8 +16,7 @@ struct ContentView: View {
             Text("Hello, world! 👋👋")
             Text("This is sentence information")
                 .font(.title)
-                .blur(radius: (scenePhase != .active ? 10 : 0))
-                .animation(.default, value: scenePhase)
+                .blurWhenAppNotActive()
         }
         .padding()
     }
